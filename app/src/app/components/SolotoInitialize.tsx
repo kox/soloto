@@ -9,6 +9,7 @@ import {
   utils,
   BN,
   setProvider,
+  Wallet,
 } from "@coral-xyz/anchor";
 
 import idl from "../../anchor/soloto.json";
@@ -30,7 +31,7 @@ const SolotoInitialize: FC = () => {
   const getProvider = () => {
     const provider = new AnchorProvider(
       connection,
-      wallet,
+      wallet as unknown as Wallet,
       AnchorProvider.defaultOptions()
     );
     setProvider(provider);
