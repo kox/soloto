@@ -1,0 +1,174 @@
+{
+  "address": "HfAbERttfCFascMUn7PvwjUhD9dbepSLZ4gptE7tmwJv",
+  "metadata": {
+    "name": "soloto",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_ticket_or_payout",
+      "discriminator": [
+        204,
+        252,
+        36,
+        63,
+        101,
+        80,
+        186,
+        189
+      ],
+      "accounts": [
+        {
+          "name": "soloto",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  111,
+                  116,
+                  111
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "soloto_acc",
+          "writable": true
+        },
+        {
+          "name": "winner"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "soloto",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  111,
+                  116,
+                  111
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Soloto",
+      "discriminator": [
+        127,
+        104,
+        34,
+        159,
+        130,
+        19,
+        67,
+        6
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "SolotoMismatch",
+      "msg": "Soloto account does not match the expected PDA."
+    },
+    {
+      "code": 6001,
+      "name": "WinnerMismatch",
+      "msg": "Winner account does not match the expected winner."
+    },
+    {
+      "code": 6002,
+      "name": "InsufficientFunds",
+      "msg": "Insufficient funds to buy a ticket."
+    }
+  ],
+  "types": [
+    {
+      "name": "Soloto",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "players",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "winner",
+            "type": "pubkey"
+          },
+          {
+            "name": "ending_time",
+            "type": "u128"
+          },
+          {
+            "name": "tickets_counter",
+            "type": "u64"
+          },
+          {
+            "name": "duration",
+            "type": "u64"
+          },
+          {
+            "name": "bump_counter",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
