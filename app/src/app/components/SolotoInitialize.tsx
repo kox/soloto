@@ -53,9 +53,9 @@ const SolotoInitialize: FC = () => {
     const tx = await program.methods
         .initialize()
         .accounts({
-          soloto: solotoPDA,
+          // soloto: solotoPDA,
           user: anchProvider.publicKey,
-          systemProgram: web3.SystemProgram.programId,
+          // systemProgram: web3.SystemProgram.programId,
         })
         .rpc();
 
